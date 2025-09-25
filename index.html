@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Platform Security — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1><a href="index.html">Platform Security</a></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">Lessons ▾</button>
+        <div class="dropdown-content">
+          <a href="intro.html">1. Introduction to Platform Security</a>
+          <a href="human-factor.html">2. Human Factor</a>
+          <a href="virtualization-security.html">3. Virtualization Security</a>
+          <a href="platform-architecture.html">4. Platform Architecture</a>
+        </div>
+      </div>
+    </nav>
+    <button class="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <div class="mobile-dropdown">
+      <button class="mobile-dropbtn">Lessons ▾</button>
+      <div class="mobile-dropdown-content">
+        <a href="intro.html">1. Introduction to Platform Security</a>
+        <a href="human-factor.html">2. Human Factor</a>
+        <a href="virtualization-security.html">3. Virtualization Security</a>
+        <a href="platform-architecture.html">4. Platform Architecture</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    
+
+    <section class="grid">
+      <!-- Order follows your requested sequence (1..8) -->
+      <a class="card" href="intro.html">
+        <img src="images/intro.png " alt="Introduction">
+        <h3>1. Introduction to Platform Security</h3>
+        <p>Platform security is the foundation of protecting computing systems from threats at
+           every layer — from hardware to applications. It ensures that resources are protected, data remains confidential,
+            and systems operate reliably even in the face of cyberattacks. By studying platform security, 
+            we learn not only about the components of 
+          a computing platform but also the potential attack surfaces and best practices that strengthen 
+          trust in modern systems.</p>
+      </a>
+
+      <a class="card" href="human-factor.html">
+        <img src="images/human.png" alt="The Human Factor in Cybersecurity">
+        <h3>2. The Human Factor in Cybersecurity</h3>
+        <p>Technology can be strong, but people remain the most vulnerable part of any security system.
+           Human error, poor password habits, falling for phishing attacks,
+            or insider threats can bypass even the most advanced defenses. 
+           This lesson focuses on the role of people in cybersecurity — from how attackers exploit trust and mistakes,
+            to real-world cases like the PhilHealth Medusa attack in the Philippines. 
+           By raising awareness, training users, and applying good security practices, 
+           organizations can reduce risks caused by the “weakest link”: humans.</p>
+      </a>
+
+      <a class="card" href="virtualization-security.html">
+        <img src="images/virtual.png" alt="Virtualization ">
+        <h3>3. Virtualization Security</h3>
+        <p>Virtualization is a cornerstone of modern IT infrastructure, 
+          enabling one physical server to host multiple virtual environments.
+           This technology maximizes hardware utilization, reduces costs, and increases flexibility. 
+           At the same time, it introduces new risks such as hyperjacking, VM escape, and misconfiguration vulnerabilities.
+           Learning about virtualization equips us with the knowledge to balance efficiency with security,
+            making it essential for enterprise and cloud environments.</p>
+        
+      </a>
+
+      
+
+      <a class="card" href="platform-architecture.html">
+        <img src="images/image.png" alt="Platform Architecture">
+        <h3>4. Platform Architecture</h3>
+        <p>Platform architecture describes the layered structure of a computing system — from the physical hardware and
+           firmware up to the operating system and applications.
+            Each layer plays a unique role and can also introduce specific vulnerabilities. 
+          By comparing mobile, desktop, cloud, and virtualization platforms, we see how design choices impact security, 
+          performance, and usability.
+           Special hardware like TPM and modern boot processes like UEFI enforce trust and resilience,
+            making architecture a critical part of cybersecurity.</p>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Platform Security — Educational Site • Created for class lessons</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const header = document.querySelector('.site-header');
+    const mobileDropbtn = document.querySelector('.mobile-dropbtn');
+    const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+    });
+
+    // Mobile dropdown toggle
+    mobileDropbtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      mobileDropdownContent.classList.toggle('show');
+    });
+
+    // Close mobile menu when clicking on a link
+    mobileNav.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        mobileDropdownContent.classList.remove('show');
+      }
+    });
+
+    // Sticky header with scroll effects
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+      const scrollY = window.scrollY;
+      
+      if (scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      // Hide/show header based on scroll direction
+      if (scrollY > lastScrollY && scrollY > 200) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+
+      lastScrollY = scrollY;
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick);
+  </script>
+</body>
+</html>
