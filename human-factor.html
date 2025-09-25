@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>2. Human Factor in Cybersecurity</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1><a href="index.html">Platform Security</a></h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Lessons ▾</button>
+      <div class="dropdown-content">
+        <a href="intro.html">1. Introduction to Platform Security</a>
+        <a href="human-factor.html" class="active">2. Human Factor</a>
+        <a href="virtualization-security.html">3. Virtualization Security</a>
+        <a href="platform-architecture.html">4. Platform Architecture</a>
+      </div>
+    </div>
+  </nav>
+  <button class="mobile-menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown">
+    <button class="mobile-dropbtn">Lessons ▾</button>
+    <div class="mobile-dropdown-content">
+      <a href="intro.html">1. Introduction to Platform Security</a>
+      <a href="human-factor.html" class="active">2. Human Factor</a>
+      <a href="virtualization-security.html">3. Virtualization Security</a>
+      <a href="platform-architecture.html">4. Platform Architecture</a>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <article class="lesson">
+   
+    <h1>Cybersecurity Awareness</h1>
+    <p>Protecting people, data, and organizations from evolving threats</p>
+
+    <section class="card">
+      <h2>🔑 The Human Factor in Cybersecurity</h2>
+      <p>Even with the best security tools, <strong>humans are often the weakest link</strong>. Simple mistakes like clicking a phishing link or reusing a weak password can lead to major breaches.</p>
+      <div class="highlight">"You are exactly what attackers want."</div>
+      <ul>
+        <li>🔐 Access to Company Systems</li>
+        <li>🎣 Phishing Attacks</li>
+        <li>🔑 Weak Passwords & Credential Reuse</li>
+        <li>📱 Personal Devices & Shadow IT</li>
+      </ul>
+    </section>
+
+    <!-- Notable Cyber Attacks -->
+    <section class="card">
+      <h2>🚨 Notable Cyber Attacks in the Philippines</h2>
+      <p>One of the most impactful incidents was the <strong>PhilHealth Medusa Attack</strong>, which exposed millions of member data and disrupted services. This highlights how attacks can directly harm organizations and citizens.</p>
+      <p><strong>Possible Impacts:</strong></p>
+      <ul>
+        <li>Identity theft & fraud</li>
+        <li>Financial losses</li>
+        <li>Loss of trust in institutions</li>
+      </ul>
+    </section>
+
+    <!-- Phishing -->
+    <section class="card">
+      <h2>🎣 Why is Phishing a Big Deal?</h2>
+      <p>Phishing remains one of the <strong>most common attack methods</strong> worldwide. It tricks people into giving away sensitive information or installing malware.</p>
+      <h3>How to Avoid Phishing Attacks</h3>
+      <ul>
+        <li>✅ <strong>Verify the sender</strong> – Check email addresses carefully.</li>
+        <li>❌ <strong>Don't click suspicious links</strong> – Hover first, or go directly to the official site.</li>
+        <li>✅ <strong>Enable Two-Factor Authentication (2FA)</strong> – Adds an extra layer of protection.</li>
+        <li>❌ <strong>Don't download unknown attachments</strong> – Malware often hides in .zip, .exe, or .docx files.</li>
+      </ul>
+    </section>
+
+    <!-- Malware -->
+    <section class="card">
+      <h2>💻 Malware</h2>
+      <p><strong>Malware</strong> is any malicious software designed to disrupt, damage, or steal information.</p>
+      <p><strong>Indicators of Malware Infection:</strong></p>
+      <ul>
+        <li>Performance Issues (slow or freezing)</li>
+        <li>Suspicious Pop-ups & Ads</li>
+        <li>Device Overheating or Loud Fan Noise</li>
+      </ul>
+    </section>
+
+    <!-- Insider Threat -->
+    <section class="card">
+      <h2>🕵️ Inside Threats</h2>
+      <p>Not all attacks come from outside. <strong>Insiders</strong> may misuse access to steal, leak, or sabotage data for personal gain or revenge.</p>
+      <p><strong>Warning Behaviors:</strong></p>
+      <ul>
+        <li>Copying sensitive files unrelated to their job</li>
+        <li>Attempting unauthorized access</li>
+        <li>Creating fake accounts inside systems</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>🛡️ Staying Safe Online</h2>
+      <ul>
+        <li>📂 <strong>Backups</strong> – Your last line of defense against ransomware.</li>
+        <li>🔄 <strong>Regular Updates</strong> – Old software = easy targets.</li>
+        <li>🔒 <strong>Passwords</strong> – Use a password manager, prefer passphrases, and never reuse passwords.</li>
+        <li>💾 <strong>Invest in USB Security Drives</strong> – Protect sensitive data offline.</li>
+      </ul>
+      <div class="highlight">💡 Remember: Data is the new gold – protect it like treasure.</div>
+    </section>
+
+    <nav style="margin-top:18px;display:flex;gap:12px">
+      <a class="card" href="intro.html">← Previous</a>
+      <a class="card" href="virtualization-security.html">Next → 3. Virtualization Security</a>
+    </nav>
+  </article>
+
+ <footer class="site-footer">
+    <p>Platform Security — Educational Site • Created for class lessons</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const header = document.querySelector('.site-header');
+    const mobileDropbtn = document.querySelector('.mobile-dropbtn');
+    const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+    });
+
+    // Mobile dropdown toggle
+    mobileDropbtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      mobileDropdownContent.classList.toggle('show');
+    });
+
+    // Close mobile menu when clicking on a link
+    mobileNav.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        mobileDropdownContent.classList.remove('show');
+      }
+    });
+
+    // Sticky header with scroll effects
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+      const scrollY = window.scrollY;
+      
+      if (scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      // Hide/show header based on scroll direction
+      if (scrollY > lastScrollY && scrollY > 200) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+
+      lastScrollY = scrollY;
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick);
+  </script>
+</body>
+</html>

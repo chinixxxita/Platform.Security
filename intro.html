@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>1. Introduction to Platform Security</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1><a href="index.html">Platform Security</a></h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Lessons ▾</button>
+      <div class="dropdown-content">
+        <a href="intro.html" class="active">1. Introduction to Platform Security</a>
+        <a href="human-factor.html">2. Human Factor</a>
+        <a href="virtualization-security.html">3. Virtualization Security</a>
+        <a href="platform-architecture.html">4. Platform Architecture</a>
+      </div>
+    </div>
+  </nav>
+  <button class="mobile-menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown">
+    <button class="mobile-dropbtn">Lessons ▾</button>
+    <div class="mobile-dropdown-content">
+      <a href="intro.html" class="active">1. Introduction to Platform Security</a>
+      <a href="human-factor.html">2. Human Factor</a>
+      <a href="virtualization-security.html">3. Virtualization Security</a>
+      <a href="platform-architecture.html">4. Platform Architecture</a>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <article class="lesson">
+
+    <section>
+      <h3>Overview</h3>
+      <p>Platform Security refers to the set of strategies, tools, and policies used to protect the hardware,
+         operating system, and software environments from cyber threats and unauthorized access.</p>
+    </section>
+
+    <h1>🌐 Introduction to Platform Security</h1>
+
+    <div class="card">
+      <h2>What is Platform Security?</h2>
+      <p>
+        Platform Security is the practice of protecting the foundation on which digital systems run.
+        Think of it as building a strong base for a house—if the base is weak, the entire structure becomes unstable. 
+        Similarly, if a platform (which includes <strong>hardware, operating systems, and applications</strong>) is not secure,
+        everything that runs on it is at risk.
+      </p>
+      <p>
+        It applies to <strong>computers, mobile devices, cloud services, IoT devices, and enterprise systems</strong>, 
+        using tools and policies that stop hackers and unauthorized users from breaking in.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Why is Platform Security Important?</h2>
+      <p>
+        Platforms are the <strong>foundation</strong> of every digital service. If attackers compromise the platform, 
+        they can gain access to everything built on top of it. This is why securing platforms is critical.
+      </p>
+      <ul>
+        <li>🔒 <strong>Data Protection</strong> – Keeps sensitive information safe.</li>
+        <li>⚡ <strong>Prevents Downtime</strong> – Avoids service interruptions that affect productivity.</li>
+        <li>📜 <strong>Compliance</strong> – Meets laws like <em>GDPR</em> and <em>HIPAA</em>.</li>
+        <li>🤝 <strong>User Trust</strong> – Builds confidence among customers and users.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Common Threats to Platforms</h2>
+      <ul>
+        <li><strong>Malware</strong> – Viruses, ransomware, and spyware that damage files or steal data.</li>
+        <li><strong>Privilege Escalation</strong> – Hackers gaining unauthorized admin-level access.</li>
+        <li><strong>Zero-Day Exploits</strong> – Attacks that use unpatched vulnerabilities.</li>
+        <li><strong>Rootkits</strong> – Malicious programs that hide deep inside the OS.</li>
+        <li><strong>Firmware Attacks</strong> – Targeting BIOS/UEFI or drivers at the hardware level.</li>
+        <li><strong>Insider Threats</strong> – Employees or insiders misusing their access rights.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Layers of Platform Security</h2>
+      <p>Strong security works in layers, like a fortress with multiple walls:</p>
+      <ul>
+        <li><strong>Physical Security</strong> – Protecting hardware from theft or tampering.</li>
+        <li><strong>Firmware & Boot Security</strong> – Secure boot processes, BIOS/UEFI passwords.</li>
+        <li><strong>Operating System Security</strong> – Regular updates, patches, and privilege control.</li>
+        <li><strong>Application Security</strong> – Sandboxing, code signing, and app permissions.</li>
+        <li><strong>Network Security</strong> – Firewalls, VPNs, and intrusion detection systems.</li>
+        <li><strong>Data Security</strong> – Encrypting data both at rest and in transit.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>The CIA Triad</h2>
+      <p>The <strong>CIA Triad</strong> is the foundation of information security: <em>Confidentiality, Integrity, and Availability</em>.</p>
+      <h3>Confidentiality</h3>
+      <p>Only authorized people can access sensitive data like:</p>
+      <ul>
+        <li><strong>PII</strong> (Personal Identifiable Information)</li>
+        <li><strong>PHI</strong> (Protected Health Information)</li>
+        <li><strong>Trade secrets & classified info</strong></li>
+      </ul>
+      <h3>Integrity</h3>
+      <p>Ensures data and systems are accurate, whole, and unaltered without permission.</p>
+      <h3>Availability</h3>
+      <p>Authorized users must have timely and reliable access to information and services.</p>
+    </div>
+
+    <div class="card">
+      <h2>Authentication</h2>
+      <p>Authentication verifies identity. It can be based on:</p>
+      <ul>
+        <li><strong>Something you know</strong> – passwords, PINs</li>
+        <li><strong>Something you have</strong> – tokens, cards, authentication apps</li>
+        <li><strong>Something you are</strong> – biometrics like fingerprints or facial recognition</li>
+      </ul>
+      <h3>Types of Authentication</h3>
+      <ul>
+        <li><strong>Single-Factor Authentication (SFA)</strong> – one method only (e.g., password).</li>
+        <li><strong>Multi-Factor Authentication (MFA)</strong> – two or more methods combined.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Non-Repudiation</h2>
+      <p>Non-Repudiation security principle that ensures a person or entity cannot deny having performed a specific action,
+         such as sending a message, signing a document, or making a transaction.
+
+In simple terms, it provides proof of origin and proof of delivery, 
+so that neither the sender nor the receiver can later claim "I didn't send it" or "I never received it."</p>
+<h2>🔑 Key points about Non-repudiation:</h2>
+<ul> 
+<li>Prevents denial of actions or commitments.</li>
+<li>Commonly used in digital signatures, online banking, e-commerce, and legal agreements.</li>
+<li>Achieved through cryptographic methods like digital signatures, public key infrastructure (PKI), and audit logs.</li>
+</ul>
+<div class="example">
+  <strong>Example:</strong> 
+<p> If you sign a contract electronically using a digital signature,
+ you cannot later deny signing it because the system has cryptographic proof tied uniquely to you.</p>
+      <p>
+        Non-repudiation ensures that people cannot deny their actions, such as sending an email, making a transaction, or signing a document. 
+        It provides <span class="highlight">proof and accountability</span>.
+      </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Privacy</h2>
+      <p>
+        Privacy is the individual's right to control how their personal information is collected and shared.  
+        For example, the <strong>General Data Protection Regulation (GDPR)</strong> in Europe ensures organizations handle data responsibly.
+      </p>
+      <h2>🔑 Key points about Privacy:</h2>
+      <ul>
+        <li>Protects personal and sensitive data from unauthorized access.</li>
+        <li>Ensures that users know what information is being collected and why.</li>
+        <li>Often supported by laws and regulations (like GDPR, Data Privacy Act of 2012 in PH, HIPAA for health data).</li>
+        <li>Maintains trust between users and organizations.</li>
+      </ul>
+      <div class="example">
+        <strong>Example:</strong> 
+<p> When you shop online, the website must protect your credit card info and not sell your personal data without consent.
+
+👉 In short, privacy = <strong>personal information safe and giving people control over it.</strong>  </p>
+    </div>
+</div>
+
+    <h1>🛡️ Risk Management in Security</h1>
+
+    <div class="card">
+      <h2>Information Security Risk</h2>
+      <p>
+        Refers to possible negative outcomes if sensitive data or systems are exposed, altered, or destroyed by unauthorized users.
+      </p>
+      <p>Information Security Risk is<strong>  the potential for loss or damage </strong>to an organization's information assets 
+        (data, systems, networks) due to <strong>threats exploiting vulnerabilities</strong>
+In short, it's about asking:
+👉 "What could go wrong with our information, how likely is it, and how bad would it be?"</p>
+
+<h2>🔑 Key Points:</h2>
+<ul>
+<li>Risk = Threat × Vulnerability × Impact</li>
+<li>Threat – anything that can cause harm (e.g., hackers, malware, natural disasters).</li>
+<li>Vulnerability – a weakness in the system (e.g., weak passwords, outdated software).</li>
+<li>Impact – the damage caused if the threat succeeds (e.g., data loss, financial cost, reputational damage).</li>
+</ul>
+<h5>Examples of Information Security Risks:</h5>
+<ul>
+<li>Data breach exposing customer information.</li>
+<li>Ransomware attack locking critical files.</li>
+<li>Insider threat (employee misusing data).</li>
+<li>Phishing attacks leading to credential theft.</li>
+<li>Physical risks like stolen laptops or server damage.</li>
+</ul>
+<h5>Managing Information Security Risks:</h5> 
+<ul>
+<li>Identify risks (risk assessment).</li>
+<li>Evaluate likelihood & impact.</li>
+<li>Apply controls (firewalls, encryption, policies, training).</li>
+<li>Monitor & review regularly.</li>
+</ul>
+    </div>
+
+    <div class="card">
+      <h2>Key Terms in Risk Management</h2>
+      <ul>
+        <li><strong>Asset</strong> – Anything valuable (data, devices, reputation).</li>
+        <li><strong>Vulnerability</strong> – A weakness or gap in security (e.g., outdated software).</li>
+        <li><strong>Threat</strong> – Someone or something that exploits vulnerabilities.</li>
+      </ul>
+      <div class="example">
+        <strong>Example:</strong>  
+        A wallet is an <strong>asset</strong>. Being distracted is a <strong>vulnerability</strong>.  
+        A pickpocket is the <strong>threat</strong>, and their method (like bumping into you) is the <strong>threat vector</strong>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Threat Actors</h2>
+      <ul>
+        <li><strong>Insiders</strong> – Employees who act carelessly or maliciously.</li>
+        <li><strong>Outsiders</strong> – Hackers or opportunists.</li>
+        <li><strong>Cybercriminals & Competitors</strong> – Motivated by money or advantage.</li>
+        <li><strong>Political Entities</strong> – Terrorists, nation-states, hacktivists.</li>
+        <li><strong>Spies & Intelligence Gatherers</strong> – Collecting sensitive information.</li>
+        <li><strong>Technology</strong> – Automated bots or malicious AI.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Vulnerabilities</h2>
+      <p>
+        Flaws or weaknesses in software, hardware, or processes that attackers can exploit. 
+        Even small oversights—like weak passwords—can create big risks.
+      </p>
+      <p>Vulnerabilities are weaknesses or flaws in a system, network, 
+        software, or process that attackers can exploit to cause harm or gain unauthorized access.</p>
+        <p>They are like "<strong> open doors or cracks</strong>" in security that make it easier for threats to succeed.</p>
+        <h4>🔑 Key Points about Vulnerabilities:</h4>
+        <ul>
+          <li>They don't cause harm on their own — but when combined with a threat, they create risk.</li>
+           <li>Can exist in technology, people, or processes.</li>
+        </ul>
+        <h4>🛠 Types of Vulnerabilities:</h4>
+        <h5>1. Technical Vulnerabilities</h5>
+        <ul>
+          <li>Software bugs (e.g., buffer overflow, SQL injection).</li>
+          <li>Weak or outdated encryption.</li>
+          <li>Unpatched operating systems.</li>
+        </ul>
+        <h5>2. Configuration Vulnerabilities</h5>
+        <ul>
+          <li>Default passwords left unchanged.</li>
+          <li>Misconfigured firewalls or cloud storage.</li>
+          <li>Open network ports not secured.</li>
+        </ul>
+        <h5>3.  Human Vulnerabilities</h5>
+        <ul>
+          <li>Weak or reused passwords.</li>
+          <li>Falling for phishing scams.</li>
+          <li>Lack of security awareness/training</li>
+        </ul>
+        <h5>4. Physical Vulnerabilities</h5>
+        <ul>
+          <li>Unlocked server rooms.</li>
+          <li>Lost or stolen devices.</li>
+          <li>No backup in case of disaster.</li>
+        </ul>
+        <p>Simple Example:</p>
+        <div class="example">
+          <ul>
+          <li>If a website doesn't sanitize user input → vulnerability.</li> 
+          <li>Hacker uses SQL injection to steal data → threat exploiting vulnerability.</li>
+          </ul>
+        </div>
+        
+ 
+    </div>
+
+    <div class="card">
+      <h2>Risk Assessment</h2>
+      <p>
+        Risk Assessment is the process of identifying, analyzing, and evaluating risks to information, systems, and assets, so organizations can decide how to manage or reduce them.
+It's basically asking:
+ "What can go wrong, how likely is it, how bad will it be, and what should we do about it?"
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Risk Treatment</h2>
+      <p>Ways to handle risks include:</p>
+      <ul>
+        <li><strong>Avoidance</strong> – Removing the risk entirely.</li>
+        <li><strong>Acceptance</strong> – Accepting low-impact risks without action.</li>
+        <li><strong>Mitigation</strong> – Reducing the chance or impact of the risk.</li>
+        <li><strong>Transference</strong> – Passing the risk to another party (e.g., insurance).</li>
+      </ul>
+    </div>
+
+    <nav style="margin-top:18px;display:flex;gap:12px">
+      <a class="card" href="human-factor.html">Next → 2. The Human Factor in Cybersecurity</a>
+    </nav>
+
+ <footer class="site-footer">
+    <p>Platform Security — Educational Site</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const header = document.querySelector('.site-header');
+    const mobileDropbtn = document.querySelector('.mobile-dropbtn');
+    const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+    });
+
+    // Mobile dropdown toggle
+    mobileDropbtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      mobileDropdownContent.classList.toggle('show');
+    });
+
+    // Close mobile menu when clicking on a link
+    mobileNav.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        mobileDropdownContent.classList.remove('show');
+      }
+    });
+
+    // Sticky header with scroll effects
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+      const scrollY = window.scrollY;
+      
+      if (scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      // Hide/show header based on scroll direction
+      if (scrollY > lastScrollY && scrollY > 200) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+
+      lastScrollY = scrollY;
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick);
+  </script>
+</body>
+</html>
