@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>8. Platform Architecture</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header"><h1>Platform Security</h1><nav><a href="index.html">Home</a></nav></header>
+
+<main class="container">
+  <article class="lesson">
+   
+    <section>
+       <h1>Platform Architecture</h1>
+    <p>Exploring the structure, security, and risks of modern computing platforms</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Layers of a Computing Platform</h2>
+      <ul>
+        <li><span class="highlight">Hardware:</span> Physical components like CPU, memory, and storage.</li>
+        <li><span class="highlight">Firmware:</span> BIOS/UEFI, device firmware that initializes hardware.</li>
+        <li><span class="highlight">Operating System (OS):</span> Manages resources and enforces security.</li>
+        <li><span class="highlight">Applications:</span> Software that provides user services.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Mobile vs. Desktop Platforms</h2>
+      <p><strong>Mobile:</strong> Portability, app sandboxing, stricter permissions (Android/iOS).</p>
+      <p><strong>Desktop:</strong> Higher performance, flexible, broader software ecosystem.</p>
+    </section>
+
+    <section class="card">
+      <h2>Cloud & Virtualization Platforms</h2>
+      <p><strong>Cloud:</strong> On-demand services (AWS, Azure), shared responsibility security.</p>
+      <p><strong>Virtualization:</strong> Hypervisors run multiple VMs, boosting efficiency but adding risks like VM escape.</p>
+    </section>
+
+    <section class="card">
+      <h2>Platform Attack Surface</h2>
+      <ul>
+        <li><strong>Hardware:</strong> Side-channel attacks, tampering</li>
+        <li><strong>Firmware:</strong> Rootkits, backdoors</li>
+        <li><strong>OS:</strong> Privilege escalation, kernel exploits</li>
+        <li><strong>Applications:</strong> Malware, unpatched vulnerabilities</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Trusted Platform Module (TPM)</h2>
+      <p>TPM is a dedicated chip that ensures secure boot, stores cryptographic keys, and blocks hidden startup attacks.</p>
+    </section>
+
+    <section class="card">
+      <h2>UEFI & Chain of Trust</h2>
+      <p><strong>UEFI:</strong> Modern BIOS replacement, initializes hardware, supports Secure Boot.</p>
+      <p><strong>Chain of Trust:</strong> Each stage of boot validates the next, preventing tampering.</p>
+    </section>
+
+    <section class="card">
+      <h2>TPM Versions & Benefits</h2>
+      <p><strong>TPM 1.2:</strong> Basic cryptography (SHA-1, RSA)</p>
+      <p><strong>TPM 2.0:</strong> Stronger algorithms, required for Windows 11.</p>
+      <p><strong>Benefits:</strong> Prevents rootkits, bootkits, unauthorized changes.</p>
+    </section>
+
+    <section class="card">
+      <h2>Limitations</h2>
+      <ul>
+        <li>Needs hardware support</li>
+        <li>Failure may lock encrypted data</li>
+        <li>Does not block OS-level malware</li>
+        <li>Still vulnerable to physical tampering</li>
+      </ul>
+    </section>
+
+    <nav style="margin-top:18px;display:flex;gap:12px">
+      <a class="card" href="index.html">Home →</a>
+    </nav>
+  </article>
+  </main>
+
+
+     
+
+
+<footer class="site-footer"><p>Platform Security — Educational Site</p></footer>
+</body>
+</html>

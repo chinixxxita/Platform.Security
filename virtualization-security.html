@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>3. Virtualization Security</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header"><h1>Platform Security</h1><nav><a href="index.html">Home</a></nav></header>
+
+<main class="container">
+  <article class="lesson">
+   
+    <section>
+     
+    <h1>Virtualization — What, Why, & Security</h1>
+    <p>Understand how virtualization works, its benefits, common risks, and practical security controls.</p>
+  
+
+  <main>
+
+    <section class="card">
+      <h2>🔍 What is Virtualization?</h2>
+      <p>
+        Virtualization is a technology that lets one physical machine host multiple independent virtual machines (VMs).
+        Each VM behaves like its own computer with a separate operating system and applications while sharing the same physical resources.
+      </p>
+      <p class="muted">
+        Think of a single physical server like an apartment building: each apartment (VM) is separate and private,
+        but they all share the same plumbing and electricity (CPU, memory, storage).
+      </p>
+
+      <div class="grid-2" style="margin-top:0.8rem">
+        <div>
+          <h3>Consolidated Hardware</h3>
+          <p>One server can host many virtual environments — reducing physical machines, power use, and space.</p>
+        </div>
+        <div>
+          <h3>Isolated Environments</h3>
+          <p>Each VM runs independently so applications and OS changes on one VM usually don't affect another.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:0.6rem">
+        <h3>Maximized Utilization</h3>
+        <p>Virtualization helps use CPU, memory, and storage more efficiently than running a single OS per server.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>🧭 Types of Virtualization</h2>
+
+      <h3>1. Server Virtualization</h3>
+      <p>
+        The most common form: several virtual servers run on a single physical host. Used heavily in data centers to consolidate workloads,
+        reduce cost, and simplify management.
+      </p>
+
+      <h3>2. Desktop Virtualization (VDI)</h3>
+      <p>
+        Virtual Desktop Infrastructure provides users with a virtual desktop that runs in the data center. This enables remote access,
+        central management, and better control over user endpoints.
+      </p>
+
+      <h3>3. Network Virtualization</h3>
+      <p>
+        Creates virtual networks that act independently of the physical hardware — enabling flexible routing, segmentation, and software-defined networking (SDN).
+      </p>
+
+      <h3>4. Storage Virtualization</h3>
+      <p>
+        Pools storage from multiple devices to present a single, unified storage resource — simplifies management and improves utilization.
+      </p>
+
+      <h3>5. Application Virtualization</h3>
+      <p>
+        Runs applications in isolated containers or sandboxes so they don’t require installation on the host OS. (Note: containers are related but use a lighter-weight approach than full VMs.)
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>🧩 Types of Hypervisors</h2>
+      <p class="muted">The hypervisor is the software layer that creates and manages VMs. There are two main types:</p>
+
+      <div class="grid-2" style="margin-top:0.6rem">
+        <div>
+          <h3>Type 1 — Bare-metal</h3>
+          <p>Runs directly on physical hardware. Offers higher performance and better security isolation because there's no host OS between the hypervisor and hardware.</p>
+          <p class="muted"><strong>Examples:</strong> VMware ESXi, Microsoft Hyper-V, Citrix XenServer, KVM (in many deployments).</p>
+        </div>
+
+        <div>
+          <h3>Type 2 — Hosted</h3>
+          <p>Runs on top of a host operating system. Easier to use for desktop virtualization and development but typically less performant for production servers.</p>
+          <p class="muted"><strong>Examples:</strong> Oracle VirtualBox, VMware Workstation, Parallels Desktop.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>✅ Benefits of Virtualization</h2>
+      <ul>
+        <li><strong>Cost Reduction:</strong> Fewer physical servers reduce hardware, power, cooling, and space expenses.</li>
+        <li><strong>Increased Agility:</strong> Quickly provision, clone, or move VMs to adapt to changing needs.</li>
+        <li><strong>Enhanced Disaster Recovery:</strong> Snapshots, replication, and easier backups reduce downtime after failures.</li>
+        <li><strong>Improved Management:</strong> Centralized tooling and orchestration simplify operations and patching.</li>
+        <li><strong>Testing & Compatibility:</strong> Developers can run multiple OS versions side-by-side for testing.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>🛡 Security Risks of Virtualization</h2>
+
+      <h3>Hyperjacking (Compromised Hypervisor)</h3>
+      <p>
+        Hyperjacking is when an attacker gains control of the hypervisor itself. This is critical because the hypervisor controls all VMs — compromise it and an attacker can monitor, alter, or shut down every VM on the host.
+      </p>
+      <div class="example">
+        <strong>Example:</strong> a malicious hypervisor installed beneath an OS (sometimes called a "blue pill" style attack) could stealthily intercept all traffic and operations.
+      </div>
+      <p><strong>Countermeasures:</strong> keep hypervisors patched, limit admin access, use strong authentication (MFA), and isolate management networks.</p>
+
+      <h3 style="margin-top:0.6rem">VM Escape</h3>
+      <p>
+        VM escape happens when code inside a VM breaks out and executes on the host or hypervisor. That defeats isolation and can lead to full control of the host and other VMs.
+      </p>
+      <p class="muted">How it happens: exploitation of hypervisor bugs, vulnerable paravirtualized drivers, or misconfigured device passthrough.</p>
+
+      <h3 style="margin-top:0.6rem">Misconfiguration Vulnerabilities</h3>
+      <p>
+        Many virtualization problems are caused by poor configuration rather than software bugs. Examples:
+      </p>
+      <ul>
+        <li>Over-privileged users or VM roles (too much admin access).</li>
+        <li>Flat virtual networks without segmentation (no VLANs or microsegmentation).</li>
+        <li>Default or weak management passwords for the hypervisor console.</li>
+        <li>Overcommitting system resources (CPU/RAM) leading to DoS.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>🔐 VM Isolation Techniques</h2>
+      <p>Good isolation prevents one VM from affecting others. Practical controls include:</p>
+      <ul>
+        <li><strong>Strong separation:</strong> treat each VM as if it were a separate physical machine with its own security policies.</li>
+        <li><strong>Resource allocation:</strong> set CPU, memory, and storage quotas to prevent noisy-neighbor issues and resource exhaustion.</li>
+        <li><strong>Access control:</strong> implement least privilege, role-based access control (RBAC), and strict admin separation for VM management.</li>
+        <li><strong>Snapshot monitoring:</strong> track snapshot creation and restores to detect suspicious rollbacks or tampering.</li>
+      </ul>
+      <div class="highlight">Best practice: separate management interfaces (console/API) onto a different network that only admins can reach.</div>
+    </section>
+
+    <section class="card">
+      <h2>🌐 Secure VM Networking</h2>
+      <p>Network security in virtual environments uses virtual switches, segmentation, and per-VM rules:</p>
+      <ul>
+        <li><strong>Virtual switches:</strong> control VM-to-VM and VM-to-host traffic with filtering and ACLs.</li>
+        <li><strong>Segmentation:</strong> VLANs or virtual networking to separate workloads (web, DB, management).</li>
+        <li><strong>Firewall rules:</strong> per-VM or per-segment policies to limit exposure.</li>
+        <li><strong>IDS/IPS integration:</strong> monitor east-west traffic inside the virtual network for malicious behavior.</li>
+        <li><strong>Microsegmentation:</strong> fine-grained rules that limit lateral movement between VMs.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>💾 VM Snapshots & Rollback Security</h2>
+      <p>
+        Snapshots capture a VM's state at a point in time — handy for testing and recovery but potentially risky.
+      </p>
+      <p class="muted">Risks include:</p>
+      <ul>
+        <li>Rolling back to a snapshot with old vulnerabilities that were already patched.</li>
+        <li>Snapshots containing sensitive data that may be left unencrypted or retained too long.</li>
+      </ul>
+      <p><strong>Best practices:</strong></p>
+      <ul>
+        <li>Encrypt snapshot/backup storage.</li>
+        <li>Limit who can create/restore snapshots and log every snapshot event.</li>
+        <li>After rollback, immediately patch and update the VM to close known vulnerabilities.</li>
+        <li>Set retention policies and securely delete snapshots you no longer need.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>🧭 Best Practices for Virtualization Security</h2>
+      <ul>
+        <li>Keep hypervisors and management tools fully patched and on a maintenance schedule.</li>
+        <li>Enforce strict access controls and multi-factor authentication (MFA) for administrators.</li>
+        <li>Use security baselines and checklists from standards like <span class="code">CIS</span> or <span class="code">NIST</span>.</li>
+        <li>Monitor VM behavior and logs centrally (SIEM) and set alerts for anomalies.</li>
+        <li>Encrypt VM images and storage volumes to protect data-at-rest.</li>
+        <li>Isolate management and backup networks from production traffic.</li>
+        <li>Avoid resource overcommitment for critical workloads; test changes in a staging environment.</li>
+        <li>Regularly audit virtual network configurations and remove unused VMs or snapshots.</li>
+      </ul>
+
+      <div class="example">
+        <strong>Quick checklist for new virtual hosts:</strong>
+        <ol style="margin:0.35rem 0 0 1.1rem;">
+          <li>Harden the hypervisor console with MFA and unique admin accounts.</li>
+          <li>Place management interfaces on a private VLAN.</li>
+          <li>Apply latest security patches before moving production VMs.</li>
+          <li>Set snapshot retention and enable snapshot encryption.</li>
+          <li>Enable per-VM firewalls and logging.</li>
+        </ol>
+      </div>
+    </section>
+<nav style="margin-top:18px;display:flex;gap:12px">
+      <a class="card" href="human-factor.html">← Previous</a>
+      <a class="card" href="platform-architecture.html">Next → 4. PLATFORM ARCHITECTURE</a>
+     
+    </nav>
+  </article>
+  </main>
+
+
+<footer class="site-footer"><p>Platform Security — Educational Site</p></footer>
+</body>
+</html>
